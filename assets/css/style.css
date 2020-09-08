@@ -551,7 +551,7 @@ section {
   opacity: 1;
   left: 0;
   right: 0;
-  bottom: -60px;
+  bottom: -200px;
   z-index: 3;
   position: absolute;
   transition: all ease-in-out 0.3s;
@@ -565,7 +565,9 @@ section {
   text-align: center;
   background: rgba(20, 157, 221, 0.75);
   transition: 0.3s;
-  width: 50%;
+  min-width: 50%;
+  width: 100%;
+  max-width: 100%;
 }
 
 .portfolio .portfolio-wrap .portfolio-links a:hover {

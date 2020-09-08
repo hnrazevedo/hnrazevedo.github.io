@@ -151,3 +151,17 @@
     background: transparent;
     border: 0;
 }
+
+.portfolio-description .github .pl-ent {
+    color: #22863a;
+}
+
+.portfolio-description .github .pl-pds,
+.portfolio-description .github .pl-s,
+.portfolio-description .github .pl-s .pl-pse .pl-s1,
+.portfolio-description .github .pl-sr,
+.portfolio-description .github .pl-sr .pl-cce,
+.portfolio-description .github .pl-sr .pl-sra,
+.portfolio-description .github .pl-sr .pl-sre {
+    color: #032f62;
+}
