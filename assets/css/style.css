@@ -748,6 +748,11 @@ section {
   background: #fff;
   width: 100%;
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+  margin-bottom:1em;
+}
+
+.contact .linkedin{
+  margin: 0 auto;
 }
 
 .contact .info i {
