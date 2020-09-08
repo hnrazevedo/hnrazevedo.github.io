@@ -7,8 +7,9 @@
 
 .portfolio-description .github .container-lg,
 .portfolio-description .github .container-xl {
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: 0;
+    margin-left: 0;
+    padding:0;
 }
 .portfolio-description .github .container-lg {
     max-width: 1012px;
