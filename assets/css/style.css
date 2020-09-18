@@ -30,9 +30,9 @@ header .bx{color:white}
 input.header{display:none}
 input.header + label{width:2em !important;height:1.6em !important;position:fixed;right:1em;top:1em;padding:0!important;z-index:3;visibility:hidden;cursor:pointer}
 input.header + label::before,
-input.header + label::after{content:"";position:absolute;width:100%;height:3px;background-color:white;transform:rotate(0deg);transition:transform .2s ease}
+input.header + label::after{content:"";position:absolute;width:100%;height:3px;background-color:black;transform:rotate(0deg);transition:transform .2s ease}
 input.header + label::after{bottom:0}
-input.header + label hr{position:absolute;bottom:-.3em;width:100%;height:3px;background-color:white !important;opacity:1;transition:opacity .2s ease}
+input.header + label hr{position:absolute;bottom:-.3em;width:100%;height:3px;background-color:black !important;opacity:1;transition:opacity .2s ease}
 /* Sections */
 section{background:white;}
 section h2,section h3{font-weight:bold;position:relative}
@@ -64,25 +64,11 @@ section.name p span{border-bottom:3px solid rgba(0,0,0,.2)}
 .projects .portfolio-wrap a.php:hover{background-color:rgb(120,124,181);transition:all .3s ease}
 .projects .portfolio-wrap a.js{border:solid 1px rgb(203,185,67);background:rgb(221,201,73);transition:all .3s ease}
 .projects .portfolio-wrap a.js:hover{background-color:rgb(255,233,84);transition:all .3s ease}
-.projects .portfolio-wrap i img{
-    height:1rem;
-}
-.filter-container > *{
-    overflow: hidden;
-    transition:all .5s ease;
-    white-space: nowrap;
-}
+.projects .portfolio-wrap i img{height:1rem}
+.filter-container > *{overflow:hidden;transition:all .5s ease;white-space:nowrap}
 /* Filter */
-.filter-container > .hidden{
-    opacity:0;
-    overflow: hidden;
-    width: 0;
-    padding:0;
-    transition:all .4s ease;
-}
-.filter-container > .hidden *{
-    overflow: hidden !important;
-}
+.filter-container > .hidden{opacity:0;overflow:hidden;width:0;padding:0;transition:all .4s ease}
+.filter-container > .hidden *{overflow:hidden!important}
 /* Contact */
 .contact .info{padding:30px;background:#fff;width:100%;box-shadow:0 0 24px 0 rgba(0, 0, 0, 0.12);margin-bottom:1em}
 .contact .info i{font-size:20px;color:#149ddd;float:left;width:44px;height:44px;background:#dff3fc;display:flex;justify-content:center;align-items:center;border-radius:50px;transition:all 0.3s ease-in-out}
@@ -101,4 +87,5 @@ header{position:fixed;left:-100%;}main{width:100%!important;}
 }
 @media (max-width:768px){
 input.header:checked + label + header{width:100%}
+input.header:checked + label::after,input.header:checked + label hr,input.header:checked + label::before{background-color:white !important}
 }
