@@ -1,193 +1,100 @@
-/**
-* Template Name: iPortfolio - v2.0.0
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-!(function($) {
-  "use strict";
+window.addEventListener('load',function(){
 
-  // Hero typed
-  if ($('.typed').length) {
-    var typed_strings = $(".typed").data('typed-items');
-    typed_strings = typed_strings.split(',')
-    new Typed('.typed', {
-      strings: typed_strings,
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
-    });
-  }
-
-  // Smooth scroll for the navigation menu and links with .scrollto classes
-  $(document).on('click', '.nav-menu a, .scrollto', function(e) {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      e.preventDefault();
-      var target = $(this.hash);
-      if (target.length) {
-
-        var scrollto = target.offset().top;
-
-        $('html, body').animate({
-          scrollTop: scrollto
-        }, 1500, 'easeInOutExpo');
-
-        if ($(this).parents('.nav-menu, .mobile-nav').length) {
-          $('.nav-menu .active, .mobile-nav .active').removeClass('active');
-          $(this).closest('li').addClass('active');
-        }
-
-        if ($('body').hasClass('mobile-nav-active')) {
-          $('body').removeClass('mobile-nav-active');
-          $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-        }
-        return false;
-      }
+    // Hero typed
+    if (document.querySelector('.typed') != null) {
+        document.querySelectorAll('.typed').forEach(typed => {
+            let typed_strings = typed.getAttribute("data-typed-items");
+            typed_strings = typed_strings.split(',')
+            new Typed(typed, {
+                strings: typed_strings,
+                loop: true,
+                typeSpeed: 100,
+                backSpeed: 50,
+                backDelay: 2000
+            });
+        });
     }
-  });
 
-  // Activate smooth scroll on page load with hash links in the url
-  $(document).ready(function() {
-    if (window.location.hash) {
-      var initial_nav = window.location.hash;
-      if ($(initial_nav).length) {
-        var scrollto = $(initial_nav).offset().top;
-        $('html, body').animate({
-          scrollTop: scrollto
-        }, 1500, 'easeInOutExpo');
-      }
+    // Aos
+    function aosInit() {
+        AOS.init({
+            duration: 1000,
+            easing: "ease-in-out-back"
+        });
     }
-  });
+    aosInit();
 
-  $(document).on('click', '.mobile-nav-toggle', function(e) {
-    $('body').toggleClass('mobile-nav-active');
-    $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-  });
-
-  $(document).click(function(e) {
-    var container = $(".mobile-nav-toggle");
-    if (!container.is(e.target) && container.has(e.target).length === 0) {
-      if ($('body').hasClass('mobile-nav-active')) {
-        $('body').removeClass('mobile-nav-active');
-        $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-      }
+    // Skills
+    if (document.querySelector('[aria-valuenow]') != null) {
+        document.querySelectorAll('[aria-valuenow]').forEach(bar => {
+            let width = (bar.getAttribute('aria-valuenow') * 100) / bar.getAttribute('aria-valuemax');
+            bar.style.width = `${width}%`;
+        });
     }
-  });
 
-  // Navigation active state on scroll
-  var nav_sections = $('section');
-  var main_nav = $('.nav-menu, .mobile-nav');
-
-  $(window).on('scroll', function() {
-    var cur_pos = $(this).scrollTop() + 200;
-
-    nav_sections.each(function() {
-      var top = $(this).offset().top,
-        bottom = top + $(this).outerHeight();
-
-      if (cur_pos >= top && cur_pos <= bottom) {
-        if (cur_pos <= bottom) {
-          main_nav.find('li').removeClass('active');
-        }
-        main_nav.find('a[href="#' + $(this).attr('id') + '"]').parent('li').addClass('active');
-      }
-      if (cur_pos < 300) {
-        $(".nav-menu ul:first li:first").addClass('active');
-      }
-    });
-  });
-
-  // Back to top button
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
-      $('.back-to-top').fadeIn('slow');
-    } else {
-      $('.back-to-top').fadeOut('slow');
+    // Github Calendar
+    if (document.querySelector('.gitcalendar') != null) {
+        GitHubCalendar(".gitcalendar", "hnrazevedo", { responsive: true });
     }
-  });
+    
+    // Scroll links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {        
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-  $('.back-to-top').click(function() {
-    $('html, body').animate({
-      scrollTop: 0
-    }, 1500, 'easeInOutExpo');
-    return false;
-  });
+            /* Close menu before click link */
+            document.querySelector('#main-menu').checked = false;
 
-  // jQuery counterUp
-  $('[data-toggle="counter-up"]').counterUp({
-    delay: 10,
-    time: 1000
-  });
-
-  // Skills section
-  $('.skills-content').waypoint(function() {
-    $('.progress .progress-bar').each(function() {
-      $(this).css("width", $(this).attr("aria-valuenow") + '%');
-    });
-  }, {
-    offset: '80%'
-  });
-
-  // Porfolio isotope and filter
-  $(window).on('load', function() {
-    var portfolioIsotope = $('.portfolio-container').isotope({
-      itemSelector: '.portfolio-item',
-      layoutMode: 'fitRows'
+            if(document.querySelector(this.getAttribute('href')) != null){
+                document.querySelector(`section.${this.parentNode.getAttribute('id')}`).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 
-    $('#portfolio-flters li').on('click', function() {
-      $("#portfolio-flters li").removeClass('filter-active');
-      $(this).addClass('filter-active');
-
-      portfolioIsotope.isotope({
-        filter: $(this).data('filter')
-      });
-      aos_init();
-    });
-
-    // Initiate venobox (lightbox feature used in portofilo)
-    $(document).ready(function() {
-      $('.venobox').venobox();
-    });
-  });
-
-  // Testimonials carousel (uses the Owl Carousel library)
-  $(".testimonials-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      768: {
-        items: 2
-      },
-      900: {
-        items: 3
-      }
+    // Filter
+    if (document.querySelector('[data-filter]') != null) {
+        document.querySelectorAll('[data-filter]').forEach(aFilter => {
+            aFilter.addEventListener('click',function(){
+                let container = document.querySelector(aFilter.getAttribute('data-filter-container'));
+                let filter = aFilter.getAttribute('data-filter');
+                if(container != null){
+                    if(container.querySelector(`:scope > ${filter}`) != null){
+                        container.querySelectorAll(`:scope > *`).forEach(all => {
+                            all.classList.remove('hidden');
+                        });
+                        container.querySelectorAll(`:scope > :not(${filter})`).forEach(hidden => {
+                            hidden.classList.add('hidden');
+                        });
+                    }
+                }
+            });
+        });
     }
-  });
 
-  // Portfolio details carousel
-  $(".portfolio-details-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
-    items: 1
-  });
 
-  // Init AOS
-  function aos_init() {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out-back",
-      once: true
-    });
-  }
-  $(window).on('load', function() {
-    aos_init();
-  });
+});
 
-})(jQuery);
+
+/* Active class to Nav-menu li visible */
+window.addEventListener('scroll', function(e) {
+    if(document.querySelector('header .nav-menu') != null){
+        document.querySelectorAll('.nav-menu ul li').forEach(li => {
+            li.classList.remove('active');
+            if(document.querySelector(`section.${li.getAttribute('id')}`) != null){
+                if(isScrolledIntoView(document.querySelector(`section.${li.getAttribute('id')}`))){
+                    li.classList.add('active');
+                }
+            }
+        });
+    }
+});
+
+function isScrolledIntoView(el) {
+    let rect = el.getBoundingClientRect();
+    let elemTop = rect.top;
+    let elemBottom = rect.bottom;
+    let isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
+    return isVisible;
+}
