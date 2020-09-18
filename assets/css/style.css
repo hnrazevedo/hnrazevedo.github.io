@@ -70,7 +70,7 @@ section.name p span{border-bottom:3px solid rgba(0,0,0,.2)}
 .filter-container > .hidden{opacity:0;overflow:hidden;width:0;padding:0;transition:all .4s ease}
 .filter-container > .hidden *{overflow:hidden!important}
 /* Contact */
-.contact .info{padding:30px;background:#fff;width:100%;box-shadow:0 0 24px 0 rgba(0, 0, 0, 0.12);margin-bottom:1em}
+.contact .info{padding:20px;background:#fff;width:100%;margin-bottom:1rem}
 .contact .info i{font-size:20px;color:#149ddd;float:left;width:44px;height:44px;background:#dff3fc;display:flex;justify-content:center;align-items:center;border-radius:50px;transition:all 0.3s ease-in-out}
 .contact .info h4{padding:0 0 0 60px;font-size:22px;font-weight:600;margin-bottom:5px;color:#050d18}
 .contact .info p{padding:0 0 10px 60px;margin-bottom:20px;font-size:14px;color:#173b6c}
