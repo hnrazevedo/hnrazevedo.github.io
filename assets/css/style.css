@@ -65,6 +65,9 @@ section.name p span{border-bottom:3px solid rgba(0,0,0,.2)}
 .projects .portfolio-wrap a.js{border:solid 1px rgb(203,185,67);background:rgb(221,201,73);transition:all .3s ease}
 .projects .portfolio-wrap a.js:hover{background-color:rgb(255,233,84);transition:all .3s ease}
 .projects .portfolio-wrap i img{height:1rem}
+.projects .portfolio-wrap span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.projects .portfolio-wrap span:last-child{font-size:.8rem;opacity:.5;transition:all .3s ease}
+.projects .portfolio-wrap a:hover span:last-child{opacity:.9;transition:all .3s ease}
 .filter-container > *{overflow:hidden;transition:all .5s ease;white-space:nowrap}
 /* Filter */
 .filter-grid{transition:height 1s ease}
