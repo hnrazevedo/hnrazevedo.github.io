@@ -57,7 +57,7 @@ section.name p span{border-bottom:3px solid rgba(0,0,0,.2)}
 .resume .resume-item h5{font-size:16px;background:#e4edf9;padding:5px 15px;display:inline-block;font-weight:600;margin-bottom:10px}
 /* Projects */
 .projects #portfolio-flters{padding:0;margin:0 auto 35px auto;list-style:none;text-align:center;background:#fff;border-radius:50px;padding:2px 15px}
-.projects li:hover,.projects li.filter-active{color:#149ddd}
+.projects li:hover,.projects li.active{color:#149ddd}
 .projects li{cursor:pointer;display:inline-block;padding:10px 15px 8px 15px;font-size:14px;font-weight:600;line-height:1;text-transform:uppercase;color:#272829;margin-bottom:5px;transition:all 0.3s ease-in-out}
 .projects .portfolio-wrap a{font-weight:600;color:#000}
 .projects .portfolio-wrap a.php{border:solid 1px rgb(71,74,138);background:rgb(176,179,214);transition:all .3s ease}
@@ -65,12 +65,14 @@ section.name p span{border-bottom:3px solid rgba(0,0,0,.2)}
 .projects .portfolio-wrap a.js{border:solid 1px rgb(203,185,67);background:rgb(221,201,73);transition:all .3s ease}
 .projects .portfolio-wrap a.js:hover{background-color:rgb(255,233,84);transition:all .3s ease}
 .projects .portfolio-wrap i img{height:1rem}
+.projects .portfolio-wrap span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.projects .portfolio-wrap span:last-child{font-size:.8rem;opacity:.5;transition:all .3s ease}
+.projects .portfolio-wrap a:hover span:last-child{opacity:.9;transition:all .3s ease}
 .filter-container > *{overflow:hidden;transition:all .5s ease;white-space:nowrap}
 /* Filter */
-.filter-container > .hidden{opacity:0;overflow:hidden;width:0;padding:0;transition:all .4s ease}
-.filter-container > .hidden *{overflow:hidden!important}
+.filter-grid{transition:height 1s ease}
 /* Contact */
-.contact .info{padding:30px;background:#fff;width:100%;box-shadow:0 0 24px 0 rgba(0, 0, 0, 0.12);margin-bottom:1em}
+.contact .info{padding:20px;background:#fff;width:100%;margin-bottom:1rem}
 .contact .info i{font-size:20px;color:#149ddd;float:left;width:44px;height:44px;background:#dff3fc;display:flex;justify-content:center;align-items:center;border-radius:50px;transition:all 0.3s ease-in-out}
 .contact .info h4{padding:0 0 0 60px;font-size:22px;font-weight:600;margin-bottom:5px;color:#050d18}
 .contact .info p{padding:0 0 10px 60px;margin-bottom:20px;font-size:14px;color:#173b6c}
