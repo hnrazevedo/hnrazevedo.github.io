@@ -68,7 +68,7 @@ section.name p span{border-bottom:3px solid rgba(0,0,0,.2)}
 .projects .portfolio-wrap span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .projects .portfolio-wrap span:last-child{font-size:.8rem;opacity:.5;transition:all .3s ease}
 .projects .portfolio-wrap a:hover span:last-child{opacity:.9;transition:all .3s ease}
-.projects .portfolio-wreap img{margin:0 auto}
+.projects .portfolio-wrap i{margin:0 auto}
 .filter-container > *{overflow:hidden;transition:all .5s ease;white-space:nowrap}
 /* Filter */
 .filter-grid{transition:height 1s ease}
