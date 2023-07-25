@@ -53,7 +53,7 @@ body{
     border:solid .5rem #23262b;
 }
 header{
-    margin-top:6rem;
+    margin-top:8rem;
 }
 
 header a{
@@ -129,7 +129,6 @@ h1::after{
     bottom:100%;
     opacity:0;
     overflow:hidden;
-    padding:0!important;
     transition: max-height .3s ease, opacity .5s ease;
 }
 
@@ -138,7 +137,6 @@ h1::after{
     position: relative;
     max-height: 100%;
     opacity: 1;
-    padding:initial !important;
     transition: max-height .3s ease, opacity .5s ease;
 }
 
@@ -187,8 +185,38 @@ ul.dashed {
     top:.35rem;
     background-color: #0d86ff;
     box-shadow: 0 0 0 .1875rem rgba(13,134,255,.25);
-    left:-.38rem;
+    left:-.35rem;
     width:.7rem;
     height: .7rem;
     border-radius: 50%;
+}
+
+label.act:hover,
+label.act{
+    background-color: var(--primary);
+    color:white;
+}
+
+nav ul li{
+    width:20%;
+}
+
+nav .menu-item:hover,
+nav .menu-item{
+    font-size: .7rem;
+    border-radius: 0;
+    background-color: #23262b;
+    border-bottom:solid 4px #23262b;
+    line-height: 1rem;
+}
+
+nav .menu-item i{
+    font-size: 1.3rem;
+}
+
+nav label.act:hover,
+nav label.act{
+    color:var(--primary);
+    
+    border-bottom:solid 4px var(--primary);
 }
