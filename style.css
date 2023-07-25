@@ -7,7 +7,7 @@ html{flex-grow:1;min-height:0;overflow-x:hidden}
 ::-webkit-scrollbar-thumb{background-color:rgba(0,0,0,.4)}
 .box{background-color:#23262b;box-shadow:-4px 8px 24px rgba(0,0,0,.07);border-radius:1.5rem}
 .profile{width:9.5rem;height:9.5rem;margin-top:-5.8rem;border:solid .5rem #23262b}
-nav{z-index:1}
+nav{z-index:1;border-bottom:solid 1px #1d1e24}
 header{margin-top:10rem}
 header a{color:#93959c}
 h2 i{color:var(--primary)}
@@ -33,6 +33,6 @@ ul.dashed > li:before {content:"-";margin-right:.5rem}
 .timeline::before{content:"";position:absolute;top:.35rem;background-color:#0d86ff;box-shadow:0 0 0 .1875rem rgba(13,134,255,.25);left:-.35rem;width:.7rem;height:.7rem;border-radius:50%}
 label.act:hover,label.act{background-color:var(--primary);color:white}
 nav ul li{width:20%}
-nav .menu-item:hover,nav .menu-item{font-size:.7rem;border-radius:0;background-color:#23262b;border-bottom:solid 4px #23262b;line-height:1rem}
+nav .menu-item:hover,nav .menu-item{font-size:.7rem;border-radius:0;background-color:#23262b;border-bottom:solid 4px #23262b;line-height:1rem;min-width:auto;}
 nav .menu-item i{font-size:1.3rem}
 nav label.act:hover,nav label.act{color:var(--primary);border-bottom:solid 4px var(--primary)}
