@@ -1,2 +1,4 @@
 /.idea
 .env
+/nginx/certs
+/nginx/logs
