@@ -1,5 +1,5 @@
 :root{--primary:rgb(66, 133, 244);--notify:rgb(244, 180, 0);--danger:#DB4437}
-body{background:linear-gradient(-45deg,#1d1e24,#000,#1d1e24);font-family:Poppins,sans-serif;font-weight:400;font-size:.875rem;line-height:1.7;height:100vh;color:white;overflow:auto}
+body{background:linear-gradient(-45deg,#1D1E2F,#000,#1D1E2F);font-family:Poppins,sans-serif;font-weight:400;font-size:.875rem;line-height:1.7;height:100vh;color:white;overflow:auto}
 *{margin:0;padding:0;box-sizing:border-box}
 html{flex-grow:1;min-height:0;overflow-x:hidden}
 ::-webkit-scrollbar{width:6px}
