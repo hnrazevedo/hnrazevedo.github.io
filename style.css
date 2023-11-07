@@ -35,7 +35,7 @@ ul.dashed > li:before {content:"-";margin-right:.5rem}
 .timeline::before{content:"";position:absolute;top:.35rem;background-color:#0d86ff;box-shadow:0 0 0 .1875rem rgba(13,134,255,.25);left:-.35rem;width:.7rem;height:.7rem;border-radius:50%}
 label.act:hover,label.act{background-color:var(--primary);color:white}
 nav ul li{width:20%}
-nav .menu-item:hover,nav .menu-item{font-size:.7rem;border-radius:0;background-color:#23262b;border-bottom:solid 4px #23262b;line-height:1rem;min-width:auto;}
+nav .menu-item:hover,nav .menu-item{font-size:.7rem;border-radius:0;background-color:rgb(15,15,15);border-bottom:solid 4px #23262b;line-height:1rem;min-width:auto;}
 nav .menu-item i{font-size:1.3rem}
 nav label.act:hover,nav label.act{color:var(--primary);border-bottom:solid 4px var(--primary)}
 .bx.about{font-size:2.5rem;color:var(--primary)}
