@@ -11,3 +11,4 @@ services:
       - ${NGINX_CONF_PATH}:/etc/nginx/conf.d:ro
       - ${NGINX_CERT_PATH}:/etc/nginx/certs
       - ${NGINX_LOGS_PATH}:/var/log/nginx
+
