@@ -22,29 +22,33 @@ html,body{
 input[type="radio"] + div{
     overflow-y: auto;
     opacity:0;
-    height: 100vh;
+    height: calc(100vh - 3.6rem);
     pointer-events: none;
-    transition:opacity ease .2s;
+    transition:all ease .2s;
+    overflow: auto;
 }
 
 input[type="radio"]:checked + div{
     pointer-events: all;
     opacity:1;
-    transition:opacity ease .4s;
-    padding-top:4rem
+    
+    transition:all ease .5s;
+}
+
+input[type="radio"]:checked + div > *:last-child{
+    padding-bottom:4rem!important;
 }
 
 input[type="radio"]#profile:checked ~ ul li label[for="profile"],
-input[type="radio"]#sobre:checked ~ ul li label[for="sobre"],
-input[type="radio"]#formacao:checked ~ ul li label[for="formacao"],
+input[type="radio"]#about:checked ~ ul li label[for="about"],
+input[type="radio"]#training:checked ~ ul li label[for="training"],
 input[type="radio"]#experiencia:checked ~ ul li label[for="experiencia"],
-input[type="radio"]#certificacoes:checked ~ ul li label[for="certificacoes"],
-input[type="radio"]#projetos:checked ~ ul li label[for="projetos"]
+input[type="radio"]#certs:checked ~ ul li label[for="certs"],
+input[type="radio"]#projects:checked ~ ul li label[for="projects"]
 {
     transition:color ease .1s;
     color:black!important;
 }
-
 
 .social-links a{
     font-size: 1.5rem;
@@ -106,4 +110,32 @@ h5{
 .menu i.bx{
     font-size: 1.5rem;
     font-weight: 100;
+}
+
+
+.btn-secondary{
+    background-color: rgb(229, 229, 229);
+    color:rgb(23, 23, 23);
+    border-color:rgb(229, 231, 235);
+    font-size: .85rem;
+}
+
+.certs{
+    font-size: .85rem;
+}
+.certs li{
+    border-bottom:solid 1px rgba(0,0,0,.15);
+}
+
+.card{
+    box-shadow: 0 0 9px rgba(0,0,0,.35);
+    border-top:solid 1px rgba(0,0,0,.1)!important;
+}
+
+.card img{
+    width: 12rem;
+}
+
+.about i.bx{
+    font-size: 2.5rem;
 }
