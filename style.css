@@ -107,6 +107,7 @@ h5{
 #menu:checked + label i.bx-x{
     opacity:1!important;
     transition: opacity .2s ease;
+    height: auto !important;
 }
 
 #menu + label i.bx-x{
@@ -127,6 +128,7 @@ h5{
     height: 100%;
     background-color: white;
     pointer-events: none;
+    box-shadow: 0 0 5px rgba(0,0,0,0.4);
 }
 
 .menu i.bx{
