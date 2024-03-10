@@ -7,7 +7,7 @@ html,body{
 }
 
 .app{
-    height: 100vh;
+    height: calc(100vh - 3.6rem);
 }
 
 .app > div{
@@ -27,6 +27,7 @@ input[type="radio"] + div{
     pointer-events: none;
     transition:all ease .2s;
     overflow: auto;
+    padding-top:3.6rem;
 }
 
 input[type="radio"]:checked + div{
@@ -106,6 +107,26 @@ h5{
 #menu:checked + label i.bx-x{
     opacity:1!important;
     transition: opacity .2s ease;
+}
+
+#menu + label i.bx-x{
+    height: 0px!important;
+}
+
+#menu + label .bx{
+    z-index: 99;
+}
+
+#menu + label::before{
+    content:" ";
+    position:absolute;
+    top:0;
+    width: 100vh;
+    left:0;
+    z-index: 80;
+    height: 100%;
+    background-color: white;
+    pointer-events: none;
 }
 
 .menu i.bx{
