@@ -23,11 +23,11 @@ html,body{
 input[type="radio"] + div{
     overflow-y: auto;
     opacity:0;
-    height: 100vh;
+    height: calc(100vh - 3.6rem);
     pointer-events: none;
     transition:all ease .2s;
     overflow: auto;
-    top:3.6rem;
+    bottom:0;
 }
 
 input[type="radio"]:checked + div{
