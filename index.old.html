@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="style.css" rel="stylesheet" >
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('input[type="radio"]').forEach(input => {
+                input.addEventListener('click', () => {
+                    document.querySelectorAll('label[for]').forEach(l => { l.classList.remove('act'); });
+                    document.querySelectorAll('label[for="'+input.getAttribute('id')+'"]').forEach(l => { l.classList.add('act'); });
+                });
+            });
+        });
+    </script>
+    <title>Henri Azevedo</title>
+</head>
+<body>
+    <nav class="position-fixed w-100 d-block d-md-none">
+        <ul class="list-unstyled p-0 m-0 d-flex">
+            <li class="d-flex justify-content-center m-0 p-0">
+                <label for="about" class="menu-item d-flex justify-content-center align-items-center p-2 act w-100">
+                    <i class="bx bx-user mb-1 mt-2"></i>
+                </label>
+            </li>
+
+            <li class="d-flex justify-content-center">
+                <label for="resume" class="menu-item d-flex justify-content-center align-items-center p-2 w-100">
+                    <i class='bx bx-file mb-1 mt-2'></i>
+                </label>
+            </li>
+
+            <li class="d-flex justify-content-center">
+                <label for="education" class="menu-item d-flex justify-content-center align-items-center p-2 w-100">
+                    <i class="bx bxs-graduation mb-1 mt-2"></i>
+                </label>
+            </li>
+
+            <li class="d-flex justify-content-center">
+                <label for="certification" class="menu-item d-flex justify-content-center align-items-center p-2 w-100">
+                    <i class="bx bxs-certification mb-1 mt-2"></i>
+                </label>
+            </li>
+
+            <li class="d-flex justify-content-center">
+                <label for="projects" class="menu-item d-flex justify-content-center align-items-center p-2 w-100">
+                    <i class="bx bxl-git mb-1 mt-2"></i>
+                </label>
+            </li>
+        </ul>
+    </nav>
+    <div class="d-none d-md-block pb-5"></div>
+    <header class="box col-11 col-md-9 col-xl-8 col-sm-10 mx-auto p-4 mt-md-3">
+        <div class="row">
+            <div class="col-12 col-xl-6 d-flex row">
+                <div class="col-xl col-xl-auto d-flex justify-content-center justify-content-xl-start">
+                    <img class="profile box" src="Profile.png">
+                </div>
+                <div class="col d-flex justify-content-center justify-content-xl-start align-items-center">
+                    <div>
+                        <h4 class="fw-normal d-flex justify-content-center justify-content-xl-start mt-4 mt-xl-0"><span class="fw-semibold me-2 ">Henri</span>Azevedo</h4>
+                        <div class="status d-flex justify-content-center justify-content-xl-start text-secondary mb-3"> Linux Engineer | IaC | SRE | Ansible | SysAdmin </div>
+                        <div class="social d-flex justify-content-center justify-content-xl-start">
+                            <ul class="p-0 list-unstyled d-flex">
+                                <li>
+                                    <a href="https://www.linkedin.com/in/henri-azevedo-063757148/" target="_blank" class="col-auto my-3 mx-2">
+                                        <i class="bx bxl-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/hnrazevedo" target="_blank" class="col-auto my-3 mx-2">
+                                        <i class="bx bxl-github"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://api.whatsapp.com/send/?phone=5511949164770&text&app_absent=0" target="_blank" class="col-auto my-3 mx-2">
+                                        <i class="bx bxl-whatsapp"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://t.me/+5511949164770" target="_blank" class="col-auto my-3 mx-2">
+                                        <i class="bx bxl-telegram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ms-auto separator-h d-none d-xl-block"></div>
+                </div>
+            </div>            
+            <div class="col-12 col-xl-6 d-flex justify-content-center">
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="mt-2 mb-4 separator-y d-block d-xl-none"></div>
+                    <div class="col-12 col-sm-6">
+                        <span class="text-secondary">Email</span>
+                        <a href="mailto:hnr.azevedo@gmail.com" target="_blank" rel="noopener" title="Email" class="d-flex align-items-center text-decoration-none text-light"> hnr.azevedo@gmail.com <i class="bx bxs-envelope ms-2"></i></a>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <span class="text-secondary">CV</span>
+                        <a href="Henri Azevedo.pdf" target="_blank" rel="noopener" title="Email" class="d-flex align-items-center text-decoration-none text-light"> Download <i class="bx bxs-download ms-2"></i></a>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <span class="text-secondary">Localização</span>
+                        <span class="d-flex align-items-center text-decoration-none text-light"> São Paulo, BR <a class="d-flex align-items-center text-decoration-none"><i class="bx bx-compass ms-2"></i></a></span>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <span class="text-secondary">Status</span>
+                        <span class="d-flex align-items-center text-decoration-none text-light"> Disponivel <a><i class="bx bx-check ms-2"></i></a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="col-11 col-md-9 col-xl-8 col-sm-10 mx-auto my-4">
+        <div class="row p-0 m-0">
+            <div class="box p-3 me-0 me-xl-4 col-xl col-xl-auto mb-3 mb-xl-0 d-none d-md-flex menu">
+                <ul class="nav list-unstyled p-0 m-0 d-xl-block justify-content-center justify-content-xl-start d-none d-sm-flex w-100">
+                    <li class="mb-xl-2 me-2 me-xl-0 flex-md-fill">
+                        <label for="about" class="menu-item d-flex flex-column justify-content-center align-items-center p-2 act">
+                            <i class="bx bx-user mb-1 mt-2"></i>Sobre
+                        </label>
+                    </li>
+
+                    <li class="mb-xl-2 me-2 me-xl-0 flex-md-fill">
+                        <label for="resume" class="menu-item d-flex flex-column justify-content-center align-items-center p-2">
+                            <i class='bx bx-file mb-1 mt-2'></i>Experiência
+                        </label>
+                    </li>
+
+                    <li class="mb-xl-2 me-2 me-xl-0 flex-md-fill">
+                        <label for="education" class="menu-item d-flex flex-column justify-content-center align-items-center p-2">
+                            <i class="bx bxs-graduation mb-1 mt-2"></i>Formação
+                        </label>
+                    </li>
+
+                    <li class="mb-xl-2 me-2 me-xl-0 flex-md-fill">
+                        <label for="certification" class="menu-item d-flex flex-column justify-content-center align-items-center p-2">
+                            <i class="bx bxs-certification mb-1 mt-2"></i>Certificações
+                        </label>
+                    </li>
+
+                    <li class="mb-xl-2 me-2 me-xl-0 flex-md-fill">
+                        <label for="projects" class="menu-item d-flex flex-column justify-content-center align-items-center p-2">
+                            <i class="bx bxl-git mb-1 mt-2"></i>Projetos
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="box p-3 col position-relative overflow-hidden">
+
+                <input type="radio" class="menu-show d-none" name="menu-show" id="about" checked> 
+                <div class="p-3">
+                    <h1 class="position-relative pb-4 mb-4">Sobre mim</h1>
+                    <p class="text-white-50">Ingressei recentemente no time de Linux Engineer na F1rst Digital Services, onde tenho aproveitado cada novo desafio como uma oportunidade de elevar meus conhecimentos.</p>
+                    <p class="text-white-50">Enquanto continuo desempenhando um papel essencial como SysAdmin na Apis Delta Ltda, onde acumulei mais de 9 anos de experiência na gestão tecnológica. Atualmente sendo minha principal responsabilidade concentra-se na automação industrial, com foco em monitoramento e observabilidade.</p>
+                    <p class="text-white-50">Paralelamente, estou avançando meus conhecimentos ao cursar Ciência da Computação na UniAmérica - Faculdade Descomplica, complementando minha sólida formação técnica em informática pela Etec Juscelino Kubitschek de Oliveira.</p>
+                    <h3 class="position-relative pb-2 mt-4 pt-4">O que estou fazendo</h3>
+                    <div class="row">
+                        <div class="col-12 col-md-6 mb-4">
+                            <div class="d-flex flex-column m-3 p-3 box justify-content-center align-items-center h-100">
+                                <i class="bx bx-code-alt about"></i>
+                                <h6 class="my-3">Desenvolvimento Web</h6>
+                                <p class="text-white-50 text-center">Atualmente estou desenvolvendo um blog pessoal, um sistema de controle de acessos e um sistema supervisório, todos utilizando Laravel.</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 mb-4">
+                            <div class="d-flex flex-column m-3 p-3 box justify-content-center align-items-center h-100">
+                                <i class="bx bx-infinite about"></i>
+                                <h6 class="my-3">DevOps <span class="fw-light d-inline-flex px-2">|</span> SRE</h6>
+                                <p class="text-white-50 text-center">Em todos meus projetos busco implementar práticas e processos DevOps e utilizar IaC em meus laboratórios.</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 mb-4">
+                            <div class="d-flex flex-column m-3 p-3 box justify-content-center align-items-center h-100">
+                                <i class="bx bxs-devices about"></i>
+                                <h6 class="my-3">IoT</h6>
+                                <p class="text-white-50 text-center">Não é minha especialidade, porem como alguem curioso e disposto, surgiu uma necessidade então aproveitei a oportunidade e trabalho num projeto de IoT para fins de OEE.</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 mb-4">
+                            <div class="d-flex flex-column m-3 p-3 box justify-content-center align-items-center h-100">
+                                <i class="bx bx-cloud about"></i>
+                                <h6 class="my-3">Cloud Computing</h6>
+                                <p class="text-white-50 text-center">Hoje trablho em um ambiente on-premises, mas sem deixar de estudar e praticar ferramentas para IaC em Cloud.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <input type="radio" class="menu-show d-none" name="menu-show" id="resume"> 
+                <div class="p-3">
+                    <h1 class="position-relative pb-4 mb-4">Experiência</h1>
+                    <div class="p-2">
+                        <div class="timeline continue px-4 mx-3 mt-4 pb-4 position-relative">
+                            <h5>AgileThought <span class="fw-light">-</span> Associate SysAdmin Engineer II</h5>
+                            <span class="text-white-50 fw-semibold d-block mb-2">Nov 2023 <span class="fw-light">-</span> Presente</span>
+                            <p class="text-white-50">Prestador de serviço <br/>Linux Engineer na F1rst Digital Services.</p>
+                            <p class="text-white-50">Em breve uma descrição completa... 🚀 </p>
+                        </div>
+                        <div class="timeline continue px-4 mx-3 mt-4 pb-4 position-relative">
+                            <h5>Apis Delta Ltda <span class="fw-light">-</span> Analista de suporte técnico (SysAdmin)</h5>
+                            <span class="text-white-50 fw-semibold d-block mb-2">Fev 2015 <span class="fw-light">-</span> Presente</span>
+                            <p class="text-white-50">Analista de suporte técnico, desempenho um papel fundamental na gestão do parque tecnológico da empresa, algumas das minhas principais atribuições:</p>
+                            <ul class="text-white-50  p-0 list-unstyled">
+                                <li>📌 <span class="pe-2"></span>Instalação, configuração e monitoramento de servidores de Emails, Virtualização, File Server, AD, Database e Backup;</li>
+                                <li>📌 <span class="pe-2"></span>Gerenciamento de usuários e politicas de segurança via AD;</li>
+                                <li>📌 <span class="pe-2"></span>Montagem, instalação, manutenção corretiva e preventiva de estações de trabalho;</li>
+                                <li>📌 <span class="pe-2"></span>Suporte ao usuário em sistema específicos, Sistema Operacional, Pacote Office, Serviço de email, ERP;</li>
+                                <li>📌 <span class="pe-2"></span>Administrar, gerenciar e monitorar banco de dados Informix;</li>
+                                <li>📌 <span class="pe-2"></span>Administrar, gerenciar e monitorar micros serviços com Docker;</li>
+                                <li>📌 <span class="pe-2"></span>Implementar, corrigir e configurar path e fix do ERP Fabrik;</li>
+                                <li>📌 <span class="pe-2"></span>Desenvolver aplicações/sistemas conforme necessidade da corporação;</li>
+                                <li>📌 <span class="pe-2"></span>Instalação, configuração e suporte ao sistema NF-e.</li>            
+                            </ul>    
+                            <p class="text-white-50">Durante está minha jornada, tive a oportunidade de efetuar a migração de servidores legados baseados em Windows para ambientes com servidores Linux e BSD. Essa transição resultou em melhorias significativas, incluindo o aprimoramento da segurança, a otimização de processos, o aumento do desempenho, tanto para os serviços quanto para as estações de trabalho, alem uma notável redução nos custos de licenças Windows.</p>      
+                        </div>
+                        <div class="timeline px-4 mx-3 mt-4 position-relative">
+                            <h5>Risksolution <span class="fw-light">-</span> Desenvolvedor Full Stack (Freelance)</h5>
+                            <span class="text-white-50 fw-semibold d-block mb-2">Jan 2021 <span class="fw-light">-</span> Dez 2021</span>
+                            <p class="text-white-50">Serviço prestado como Desenvolvedor Full Stack (Freelance) para empresa de consultoria de segurança:</p>
+                            <ul class="text-white-50 m-0 p-0 list-unstyled">
+                                <li>📌 <span class="pe-2"></span>Aplicativo desenvolvido com React Native com finalidade de realizar vistorias dinâmicas e detalhadas em lojistas de forma offline;</li>
+                                <li>📌 <span class="pe-2"></span>Sistema web em PHP desenvolvido para o gerenciamento de ACL, configurações, cadastrados, realizar vistorias de forma síncrona, gerar relatórios e gráficos, envio de notificações, entre outras funcionalidades.</li>        
+                            </ul>    
+                        </div>
+                        
+                        <h3 class="position-relative pb-2 mt-4 pt-4">Skills</h3>
+                        <div class="borded p-4">
+                            <div class="row">
+                                <div class="col-12 mb-2">
+                                    <div class="skill position-relative">
+                                        <span class="bar _skill position-absolute h-100 left-0" style="width:90%"></span>
+                                        <span class="position-absolute">Troubleshoot</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <div class="skill position-relative">
+                                        <span class="bar _skill position-absolute h-100 left-0" style="width:66%"></span>
+                                        <span class="position-absolute">Linux Environment</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <div class="skill position-relative">
+                                        <span class="bar _skill position-absolute h-100 left-0" style="width:75%"></span>
+                                        <span class="position-absolute">Windows</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <div class="skill position-relative">
+                                        <span class="bar _skill position-absolute h-100 left-0" style="width:75%"></span>
+                                        <span class="position-absolute">Pacote Office</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <div class="skill position-relative">
+                                        <span class="bar _skill position-absolute h-100 left-0" style="width:55%"></span>
+                                        <span class="position-absolute">Git</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <div class="skill position-relative">
+                                        <span class="bar _skill position-absolute h-100 left-0" style="width:30%"></span>
+                                        <span class="position-absolute">DevOps <span class="fw-light" style="font-size:.8rem">|</span> SRE</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <div class="skill position-relative">
+                                        <span class="bar _skill position-absolute h-100 left-0" style="width:30%"></span>
+                                        <span class="position-absolute">Cloud Computing</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mb-2">
+                                    <div class="skill position-relative">
+                                        <span class="bar _code position-absolute h-100 left-0" style="width:65%"></span>
+                                        <span class="position-absolute">PHP</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <div class="skill position-relative">
+                                        <span class="bar _code position-absolute h-100 left-0" style="width:60%"></span>
+                                        <span class="position-absolute">SQL</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <div class="skill position-relative">
+                                        <span class="bar _code position-absolute h-100 left-0" style="width:40%"></span>
+                                        <span class="position-absolute">Java</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <div class="skill position-relative">
+                                        <span class="bar _code position-absolute h-100 left-0" style="width:30%"></span>
+                                        <span class="position-absolute">Shell Script</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <input type="radio" class="menu-show d-none" name="menu-show" id="education"> 
+                <div class="p-3">
+                    <h1 class="position-relative pb-4 mb-4">Formação</h1>
+                    <div class="p-2 mt-4 d-flex row">
+                        <div class="col-12 col-sm-6">
+                            <h2 class="d-flex align-items-center"><i class="bx bxs-graduation me-3 fw-normal"></i>Educação</h2>
+                            <div class="timeline continue px-4 mx-3 mt-4 position-relative">
+                                <h5>Uniamérica</h5>
+                                <span class="text-white-50 fw-semibold d-block mb-2">Jul 2022 <span class="fw-light">-</span> Jul 2026 (Cursando)</span>
+                                <p class="text-white-50">Graduação em Ciência da computação</p>
+                            </div>
+                            <div class="timeline px-4 mx-3 mt-4 position-relative">
+                                <h5>ETEC Juscelino Kubitschek de Oliveira</h5>
+                                <span class="text-white-50 fw-semibold d-block mb-2">Jul 2013 <span class="fw-light">-</span> Dez 2015</span>
+                                <p class="text-white-50">Técnico em informática</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <h2 class="d-flex align-items-center"><i class="bx bxs-graduation me-3 fw-normal"></i>Cursos</h2>
+                            <div class="timeline continue px-4 mx-3 mt-4 position-relative">
+                                <h5>FIAP</h5>
+                                <ul class="ps-4">
+                                    <li><a href="https://drive.google.com/file/d/1TnGkgAgy8IHX0lswo4mkfGF03fvvv38v/view?usp=share_link" target="_blank" class="text-white-50 text-decoration-none">Cloud Fundamentals, Administration And Solution Architect (80h)</a></li>
+                                    <li><a href="https://drive.google.com/file/d/1oA3aeP6xt3_kGz-Q6I8B4bcbeBv6JiTo/view?usp=share_link" target="_blank" class="text-white-50 text-decoration-none">Gestão de Infraestrutura de TI (20h)</a></li>
+                                    <li><a href="https://drive.google.com/file/d/1CCglXz94AFMRkz_lxg6HukYSkNFHYdLP/view?usp=share_link" target="_blank" class="text-white-50 text-decoration-none">DevOps & Agile Culture (60h)</a></li>
+                                    <li><a href="https://drive.google.com/file/d/1t1vNAhZnT_NTfHkiuBUfRRkSNv69dVl8/view?usp=share_link" target="_blank" class="text-white-50 text-decoration-none">Java Fundamentos (60h)</a></li>
+                                </ul>
+                            </div>
+                            <div class="timeline continue px-4 mx-3 mt-4 position-relative">
+                                <h5>4Linux</h5>
+                                <ul class="ps-4">
+                                    <li>
+                                        <a href="https://drive.google.com/file/d/114ODk5XxVkBlwTLVpHJStxqwnkubfJUZ/view?usp=share_link" target="_blank" class="text-white-50 text-decoration-none">Cloud Fundamentals (20h)</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://drive.google.com/file/d/1Xog0eSrStruLk1JmdNkONVhaG8c2sGHh/view?usp=share_link" target="_blank" class="text-white-50 text-decoration-none">Big Data Essentials (20h)</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://drive.google.com/file/d/1lQbYqqY1x_qhonr2wl70-eFTU-X0KSgj/view?usp=share_link" target="_blank" class="text-white-50 text-decoration-none">Containers Fundamentals (20h)</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://drive.google.com/file/d/13zhL0T5LxWvJtp_cNMTSIElJxlg4Xx1A/view?usp=share_link" target="_blank" class="text-white-50 text-decoration-none">DevOps Essentials (20h)</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://drive.google.com/file/d/13LPUZFUiL3_izwS-XAfC-ikDd2Efx9P6/view?usp=share_link" target="_blank" class="text-white-50 text-decoration-none">Linux Essentials (20h)</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://drive.google.com/file/d/1GAaHyZq8M6x0EYh_pNKRh56rvAOX_tXa/view?usp=share_link" target="_blank" class="text-white-50 text-decoration-none">Linux Fundamentals (20h)</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://drive.google.com/file/d/1JByZzPacIqEiXgOGrzCbqFMn81ppRK4q/view?usp=share_link" target="_blank" class="text-white-50 text-decoration-none">Auditoria de Logs (20h)</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="timeline continue px-4 mx-3 position-relative">
+                                <h5>Digital Innovation One</h5>
+                                <ul class="ps-4">
+                                    <li><a href="https://www.dio.me/certificate/C5ED3F9B" target="_blank" class="text-white-50 text-decoration-none">Formação: Cybersecurity Specialist (22h)</a></li>
+                                    <li><a href="https://www.dio.me/certificate/F104E404" target="_blank" class="text-white-50 text-decoration-none">Formação: Kubernetes Fundamentals (19h)</a></li>
+                                    <li><a href="https://www.dio.me/certificate/10D6C7B6" target="_blank" class="text-white-50 text-decoration-none">Formação: Docker Fundamentals (14h)</a></li>
+                                    <li><a href="https://www.dio.me/certificate/9EE27E76" target="_blank" class="text-white-50 text-decoration-none">Bootcamp: Jornada DevOps com AWS - Impulso (69h)</a></li>
+                                    <li><a href="https://www.dio.me/certificate/CC7F4AF1" target="_blank" class="text-white-50 text-decoration-none">Curso: Trabalhando com Git e GitLab na prática (2h)</a></li>
+                                </ul>
+                            </div>
+                            <div class="timeline px-4 mx-3 position-relative">
+                                <h5>Solyd Offensive Security</h5>
+                                <ul class="ps-4">
+                                    <li>
+                                        <a href="https://drive.google.com/file/d/1oS0MqYIim-YUygR3qy8lyPb7BkjZm2rc/view?usp=share_link" target="_blank" class="text-white-50 text-decoration-none">Introdução ao Hacking e Pentest 2.0 (8h)</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <input type="radio" class="menu-show d-none" name="menu-show" id="certification"> 
+                <div class="p-3">
+                    <h1 class="position-relative pb-4 mb-4">Certificações</h1>
+                    <div class="p-2">
+                        <div class="pb-4 position-relative">
+                            <h5>Linux Professional Institute (LPI)</h5>
+                            <ul class="text-white-50 m-0 p-0 list-unstyled">
+                                <li>
+                                    <a href="https://cs.lpi.org/caf/Xamman/certification/verify/LPI000546507/u6r3g75flz" target="_blank" class="text-white-50 text-decoration-none">🏅 <span class="pe-2"></span>Linux Essentials</a>
+                                    <span class="text-secondary ms-3" style="font-size:.9em">(Maio/23 - Não expira)</span>
+                                </li>         
+                            </ul>    
+                        </div>
+                        <div class="mt-4 position-relative">
+                            <h5>Instituto Brasileiro de Cibersegurança (IBSEC)</h5>
+                            <ul class="text-white-50 m-0 p-0 list-unstyled">
+                                <li>
+                                    <a href="https://drive.google.com/file/d/1OTizW85Pe9nDAAkHUuZpZNoUmz1r8iTv/view?usp=share_link" target="_blank" class="text-white-50 text-decoration-none">🏅 <span class="pe-2"></span>Cybersecurity Awareness</a>
+                                    <span class="text-secondary ms-3" style="font-size:.9em">(Junho/22 - Não expira)</span>
+                                </li>
+                                <li>
+                                    <a href="https://drive.google.com/file/d/1zZ1olVD-ZIuUUkkWy8YAmo8p_0blgEsF/view?usp=share_link" target="_blank" class="text-white-50 text-decoration-none">🏅 <span class="pe-2"></span>Fundamentos em Cibersegurança</a>
+                                    <span class="text-secondary ms-3" style="font-size:.9em">(Junho/22 - Não expira)</span>
+                                </li>
+                                <li>
+                                    <a href="https://drive.google.com/file/d/16U96OwHeJPdr36dlsePy0DNjkymYSb-M/view?usp=share_link" target="_blank" class="text-white-50 text-decoration-none">🏅 <span class="pe-2"></span>Fundamentos em redes</a>
+                                    <span class="text-secondary ms-3" style="font-size:.9em">(Dezembro/22 - Não expira)</span>
+                                </li>    
+                            </ul>    
+                        </div>
+                    </div>
+                </div>
+
+                <input type="radio" class="menu-show d-none" name="menu-show" id="projects"> 
+                <div class="p-3">
+                    <h1 class="position-relative pb-4 mb-4">Projetos</h1>
+                    <div class="p-2">
+                        <div class="pb-4 position-relative">
+                            <ul class="text-white-50 m-0 p-0 list-unstyled">
+                                <li>
+                                    <a href="https://github.com/hnrazevedo/workstation" target="_blank" class="text-white fw-semibold text-decoration-none">💻 <span class="pe-2"></span>hnrazevedo/workstation</a>
+                                    <p class="mb-0" style="text-indent: 0px;">Um playbook Ansible para configuração da minha workstation, instalando e configurando os aplicativos que mais utilizo ou que estou estudando.</p>
+                                    <p class="text-end">
+                                        <img style="height:2rem" src="https://www.vectorlogo.zone/logos/ansible/ansible-icon.svg" />
+                                    </p>
+                                </li> 
+                                <li>
+                                    <a href="https://github.com/hnrazevedo/terraform-proxmox-lab" target="_blank" class="text-white fw-semibold text-decoration-none">💻 <span class="pe-2"></span>hnrazevedo/terraform-proxmox-lab</a>
+                                    <p class="mb-0" style="text-indent: 0px;">Um pequno roteiro de como provisionar um cluster Kubernetes em um servidor de virtualização Proxmox utilizando Terraform e Ansible.</p>
+                                    <p class="text-end">
+                                        <img class="mx-1" style="height:2rem" src="https://www.proxmox.com/favicon.svg" />
+                                        <img class="mx-1" style="height:2rem" src="https://www.vectorlogo.zone/logos/terraformio/terraformio-icon.svg" />
+                                        <img class="mx-1" style="height:2rem" src="https://www.vectorlogo.zone/logos/ansible/ansible-icon.svg" />
+                                        <img class="ms-1" style="height:2rem" src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" />
+                                    </p>
+                                </li> 
+                                <li>
+                                    <a href="https://github.com/hnrazevedo/Router" target="_blank" class="text-white fw-semibold text-decoration-none">💻 <span class="pe-2"></span>hnrazevedo/router</a>
+                                    <p class="mb-0" style="text-indent: 0px;">O Router é um simples abstrator de URL amigável em PHP, desenvolvi para estudos baseando-se nas funcionalidades do Laravel.</p>
+                                    <p class="text-end">
+                                        <img style="height:2rem" src="https://www.vectorlogo.zone/logos/php/php-icon.svg" />
+                                    </p>
+                                </li>   
+                                <li>
+                                    <a href="https://github.com/hnrazevedo/Validator" target="_blank" class="text-white fw-semibold text-decoration-none">💻 <span class="pe-2"></span>hnrazevedo/validator </a>
+                                    <p class="mb-0" style="text-indent: 0px;">O Validator é um simples componente de validação de dados em PHP, desenvolvido para estudos em PHP.</p>
+                                    <p class="text-end">
+                                        <img style="height:2rem" src="https://www.vectorlogo.zone/logos/php/php-icon.svg" />
+                                    </p>
+                                </li>   
+                                <li>
+                                    <a href="https://github.com/hnrazevedo/JSmask" target="_blank" class="text-white fw-semibold text-decoration-none">💻 <span class="pe-2"></span>hnrazevedo/jsmask </a>
+                                    <p class="mb-0" style="text-indent: 0px;">Uma biblioteca básica e simples para mascaras em JS, desenvolvido para estudos de JS.</p>
+                                    <p class="text-end">
+                                        <img style="height:2rem" src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" />
+                                    </p>
+                                </li>   
+                                <li>
+                                    <a href="https://github.com/hnrazevedo/JSmask" target="_blank" class="text-white fw-semibold text-decoration-none">💻 <span class="pe-2"></span>hnrazevedo/jsvalidator </a>
+                                    <p class="mb-0" style="text-indent: 0px;">JSvalidador é um validador simples de campos em JS, desenvolvido para estudos de JS.</p>
+                                    <p class="text-end">
+                                        <img style="height:2rem" src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" />
+                                    </p>
+                                </li>         
+                            </ul>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
