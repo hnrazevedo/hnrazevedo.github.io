@@ -3,6 +3,7 @@ html,body{
     height: 100vh;
     overflow: hidden;
     font-family: "Red Hat Display", sans-serif;
+    background-color: rgb(242 245 250);
 }
 
 .app{
