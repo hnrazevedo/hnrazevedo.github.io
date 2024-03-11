@@ -11,10 +11,11 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <div class="app d-flex flex-column justify-content-end align-items-center">
+    <div class="app d-flex flex-column-reverse justify-content-end align-items-center">
+        <div class="flex-grow-1">
         <!-- Profile -->
         <input type="radio" name="menu" class="d-none" id="profile" checked="checked">
-        <div class="position-absolute profile d-flex flex-column justify-content-center align-items-center">
+        <div class="profile d-flex flex-column justify-content-center align-items-center">
             <img src="Profile.png">
             <h2 class="mt-3">Henri Azevedo</h1>
             <h5 class="mb-3">Linux Engineer Jr</h4>
@@ -53,8 +54,8 @@
 
         <!-- Sobre -->
         <input type="radio" name="menu" class="d-none" id="about">
-        <div class="position-absolute">
-            <div class="position-absolute d-flex justify-content-center about">
+        <div>
+            <div class="d-flex justify-content-center about">
                 <div class="px-3 px-sm-0 col-sm-10 col-md-8 py-sm-3 ">
                     <h1 class="fw-bold mt-4 text-center">Sobre mim</h1>
                     <div class="text-secondary fw-semibold my-5">
@@ -100,8 +101,8 @@
 
         <!-- Experiencia -->
         <input type="radio" name="menu" class="d-none" id="experiencia">
-        <div class="position-absolute">
-            <div class="position-absolute d-flex justify-content-center">
+        <div>
+            <div class="d-flex justify-content-center">
                 <div class="px-3 px-sm-0 col-sm-10 col-md-8 py-sm-3 ">
                     <h1 class="fw-bold mt-4 text-center">Experiência</h1>
                     <p class="text-secondary fw-semibold my-5">
@@ -172,8 +173,8 @@
         <!-- Experiencia -->
         <!-- Formação -->
         <input type="radio" name="menu" class="d-none" id="training">
-        <div class="position-absolute">
-            <div class="position-absolute d-flex justify-content-center w-100">
+        <div>
+            <div class="d-flex justify-content-center w-100">
                 <div class="px-3 px-sm-0 col-sm-10 col-md-8 col-lg-7 col-xl-6 py-sm-3 ">
                     <h1 class="fw-bold mt-4 text-center">Formação</h1>
                     <p class="text-secondary fw-semibold my-5">Estou sempre em busca de aprender algo novo e tentando me especializar no que já conheço, você pode encontrar abaixo minha formação academica e alguns cursos que já conclui.</p>
@@ -312,8 +313,8 @@
 
         <!-- Certificações -->
         <input type="radio" name="menu" class="d-none" id="certs">
-        <div class="position-absolute">
-            <div class="position-absolute d-flex justify-content-center w-100">
+        <div>
+            <div class="d-flex justify-content-center w-100">
                 <div class="px-3 px-sm-0 col-sm-10 col-md-8 col-lg-7 col-xl-6 py-sm-3">
                     <h1 class="fw-bold mt-4 text-center">Certificações</h1>
                     <p class="text-secondary fw-semibold my-5">Já realizei algumas testes de certificações e fui aprovado, você pode encontrar os certificados logo abaixo.</p>
@@ -370,7 +371,7 @@
 
         <!-- Projetos -->
         <input type="radio" name="menu" class="d-none" id="projects">
-        <div class="position-absolute projects">
+        <div class="projects">
             <div class="px-3 px-sm-0 col-sm-10 col-md-8 col-lg-7 col-xl-6 py-sm-3 mx-auto">
                 <h1 class="fw-bold mt-4 text-center">Projetos</h1>
                 <p class="text-secondary fw-semibold my-5">Sempre que tenho a chance, gosto de desenvolver projetos relacionados ao que estou estudando. Acredito que a melhor forma de aprender é praticando, mesmo que às vezes seja necessário reinventar a roda.</p>
@@ -437,17 +438,17 @@
                     </div>
                 </div>
             </div>
-            
         </div>
         <!-- Projetos -->
+        </div>
 
         <!-- Menu -->
         <input type="checkbox" id="menu" class="d-none">
-        <label for="menu" class="d-sm-none d-flex position-fixed align-items-center top-0 p-2" role="button" style="height:3.6rem;left:0;z-index:999;">
+        <label for="menu" class="d-sm-none d-flex align-items-center p-2 align-self-start position-relative" role="button" style="height:3.6rem;">
             <i class="bx bx-menu" style="font-size:2rem;"></i>
             <i class="bx bx-x opacity-0" style="font-size:2rem;"></i>
         </label>
-        <ul style="padding-top:3.6rem"class="shadow menu pt-sm-0 m-0 list-unstyled w-100 justify-content-center position-fixed top-0 d-none d-sm-flex bg-white">
+        <ul style="z-index:2;"class="shadow menu pt-sm-0 m-0 list-unstyled w-100 justify-content-center d-none d-sm-flex bg-white">
             <li>
                 <label for="profile" class="px-3 px-sm-2 py-3 mx-sm-1 mx-3 d-flex justify-content-md-center align-items-center text-secondary fw-bold" role='button' onclick="document.getElementById('menu').checked=false">
                     <i class="bx bxs-home pe-3 d-sm-none"></i>
