@@ -52,18 +52,8 @@ input[type="radio"]#experiencia:checked ~ ul li label[for="experiencia"],
 input[type="radio"]#certs:checked ~ ul li label[for="certs"],
 input[type="radio"]#projects:checked ~ ul li label[for="projects"]
 {
-    transition:color ease .1s;
-}
-
-input[type="radio"]#profile:checked ~ ul li label[for="profile"]::before,
-input[type="radio"]#about:checked ~ ul li label[for="about"]::before,
-input[type="radio"]#training:checked ~ ul li label[for="training"]::before,
-input[type="radio"]#experiencia:checked ~ ul li label[for="experiencia"]::before,
-input[type="radio"]#certs:checked ~ ul li label[for="certs"]::before,
-input[type="radio"]#projects:checked ~ ul li label[for="projects"]::before
-{
-    opacity:1;
-    transition: opacity .3s ease;
+    background-color: white;
+    color:#ee0000;
 }
 
 .social-links a{
@@ -84,11 +74,11 @@ h2{
 
 
 @media (max-width: 576px){
-
-
-    ul.menu li label::before{
-        width: 3px!important;
-        height: 100%!important;
+    ul.menu{
+        width: 100%;
+        background-color: white!important;
+        color:black!important;
+        border-radius: 0!important;
     }
 
     #menu + label + ul{
@@ -113,18 +103,6 @@ h2{
         transition:all ease-out .3s;
         height: 100vh;
     }
-}
-
-ul.menu li label::before{
-    content:" ";
-    position: absolute;
-    bottom: 0;
-    left:0;
-    opacity:0;
-    width: 100%;
-    height: 3px;
-    background-color: #ee0000;
-    transition: opacity .3s ease;
 }
 
 ul.menu li label:hover::before{

@@ -1,7 +1,8 @@
 version: "3.7"
 services:
   nginx:
-    image: 'nginx:latest'
+    privileged: true
+    image: 'docker.io/nginx:latest'
     restart: unless-stopped
     ports:
       - '${NGINX_HTTP_PORT}:80'
