@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Henri Azevedo — IT Analyst · Infrastructure Automation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --surface2: #eeeff2;
+      --border: #dde0e8;
+      --accent: #ee0000;
+      --accent2: #b30000;
+      --text: #111318;
+      --muted: #9098aa;
+      --muted2: #555e72;
+      --green: #16a34a;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NOISE OVERLAY */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.15;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted2);
+      text-decoration: none;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 3rem 4rem;
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 4rem;
+    }
+
+    .hero-bg {
+      position: fixed;
+      top: -20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(238,0,0,0.05) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-bg2 {
+      position: fixed;
+      bottom: -20%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(179,0,0,0.04) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-tag {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: inline-block;
+      width: 2rem;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-name {
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-name span {
+      display: block;
+      background: linear-gradient(135deg, var(--text) 0%, var(--muted2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-role {
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-desc {
+      color: var(--muted2);
+      font-size: 1rem;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.8rem 1.8rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent2);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--muted2);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* HERO PHOTO */
+    .hero-photo-area {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .photo-wrapper {
+      position: relative;
+      width: 260px;
+      height: 260px;
+    }
+
+    .profile-photo {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      position: relative;
+      z-index: 2;
+      border: 4px solid var(--bg);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    }
+
+    .photo-accent-ring {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      z-index: 1;
+      opacity: 0.6;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .badge {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted2);
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      display: inline-block;
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 6px var(--green);
+      margin-right: 0.5rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* SECTIONS */
+    section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 1.5rem;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 3rem;
+      line-height: 1.1;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 3rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--muted2);
+      margin-bottom: 1.2rem;
+      line-height: 1.9;
+    }
+
+    .about-text p strong {
+      color: var(--text);
+    }
+
+    .skills-grid {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .skill-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .skill-name {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted2);
+      width: 140px;
+      flex-shrink: 0;
+      letter-spacing: 0.05em;
+    }
+
+    .skill-bar {
+      flex: 1;
+      height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+      animation: fillBar 1.2s ease both;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes fillBar {
+      from { width: 0% !important; }
+    }
+
+    /* FOCUS CARDS */
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+
+    .focus-card {
+      background: #f7f7f8;
+      padding: 1.5rem;
+      transition: background 0.2s;
+    }
+
+    .focus-card:hover { background: var(--surface2); }
+
+    .focus-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .focus-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.02em;
+    }
+
+    .focus-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* EXPERIENCE */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      padding: 0 0 3rem 2.5rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 0.4rem;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    .timeline-meta {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .timeline-company {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .timeline-date {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .timeline-role {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .timeline-type {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .timeline-desc {
+      color: var(--muted2);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 3px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--muted2);
+      letter-spacing: 0.06em;
+    }
+
+    /* EDUCATION */
+    .edu-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .edu-card:hover {
+      border-color: var(--accent2);
+    }
+
+    .edu-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    .edu-degree {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-school {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.05em;
+    }
+
+    .edu-period {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    /* COURSES */
+    .courses-section {
+      margin-top: 3rem;
+    }
+
+    .courses-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted2);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .course-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: border-color 0.2s;
+    }
+
+    .course-item:hover { border-color: var(--accent2); }
+
+    .course-info {}
+    .course-provider {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .course-name {
+      font-size: 0.85rem;
+      color: var(--text);
+      margin-top: 0.15rem;
+    }
+
+    .course-link {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--accent2);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.5rem;
+      border: 1px solid var(--accent2);
+      border-radius: 3px;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+
+    .course-link:hover {
+      background: var(--accent2);
+      color: white;
+    }
+
+    /* CERTIFICATIONS */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .cert-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    .cert-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .cert-card:hover::after { transform: scaleX(1); }
+    .cert-card:hover { border-color: var(--accent);}
+
+    .cert-org {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.5rem;
+    }
+
+    .cert-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .cert-date {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .cert-verify {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: opacity 0.2s;
+    }
+
+    .cert-verify:hover { opacity: 0.7; }
+    .cert-verify::after { content: '→'; }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem;
+      position: relative;
+      transition: all 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+    }
+
+    .project-num {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--muted2);
+      line-height: 1.7;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: opacity 0.2s;
+    }
+
+    .project-link:hover { opacity: 0.7; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 4rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .social-links a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted2);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .social-links a:hover { color: var(--accent); }
+
+    /* ANIMATIONS */
+
+    /* Hero photo always visible */
+    .hero-photo-area {
+      opacity: 1;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 6rem 1.5rem 3rem;
+        gap: 3rem;
+      }
+      .hero-photo-area { order: -1; }
+      .photo-wrapper { width: 180px; height: 180px; }
+      .profile-photo { width: 180px; height: 180px; }
+      section { padding: 4rem 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .focus-grid { grid-template-columns: 1fr; }
+      .divider { margin: 0 1.5rem; }
+      footer { padding: 3rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    }
+
+    .cert-logo {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      border-radius: 6px;
+      background: #fff;
+      padding: 4px;
+      margin-bottom: 0.75rem;
+    }
+
+    .cert-logo-placeholder {
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .edu-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #fff;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+    /* TERMINAL EFFECT */
+    .terminal-line {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted2);
+      margin-top: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .terminal-line span {
+      color: var(--accent);
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 8px; height: 1.1em;
+      background: var(--accent);
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+      margin-left: 2px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero-bg"></div>
+<div class="hero-bg2"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">~/hazevedo</a>
+  <ul class="nav-links">
+    <li><a href="#sobre">sobre</a></li>
+    <li><a href="#experiencia">experiência</a></li>
+    <li><a href="#formacao">formação</a></li>
+    <li><a href="#certificacoes">certificações</a></li>
+    <li><a href="#projetos">projetos</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content"> <!--
+    <div class="hero-tag">
+      <span class="status-dot"></span>Disponível para oportunidades
+    </div>-->
+    <h1 class="hero-name">
+      <span>Henri</span>
+      <span>Azevedo</span>
+    </h1>
+    <p class="hero-role">// IT Analyst II · Infrastructure Automation · DevOps</p>
+    <p class="hero-desc">
+      Analista focado em automação de infraestrutura, IaC e observabilidade.
+      Mais de 9 anos gerenciando ambientes críticos — do servidor ao pipeline de provisionamento.
+    </p>
+    <div class="terminal-line">
+      <span>$</span> whoami → It Analyst II @ Santander Serviços Digitais<span class="cursor"></span>
+    </div>
+    <div class="hero-actions" style="margin-top:2rem;">
+      <a href="https://www.linkedin.com/in/azevedo-henri/" target="_blank" class="btn btn-primary">LinkedIn</a>
+      <a href="https://github.com/hnrazevedo" target="_blank" class="btn btn-outline">GitHub</a>
+    </div>
+  </div>
+
+  <div class="hero-photo-area">
+    <div class="photo-wrapper">
+      <img src="https://media.licdn.com/dms/image/v2/D4D03AQHrSyriA03p4g/profile-displayphoto-crop_800_800/B4DZuogUWuKgAI-/0/1768058603549?e=1774483200&v=beta&t=lOYRb6xo7lbWrB5qfwiPxP6J4uw1HO8pm6jwWHqcZEs" alt="Henri Azevedo" class="profile-photo">
+      <div class="photo-accent-ring"></div>
+    </div>
+    <div class="hero-badges">
+      <span class="badge"><span class="badge-dot"></span>Automação de Infraestrutura</span>
+      <span class="badge">Santander Serviços Digitais</span>
+      <span class="badge">São Paulo, BR</span>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="section-label">01 / sobre mim</div>
+  <h2 class="section-title">Quem sou eu</h2>
+
+  <div class="about-grid">
+    <div class="about-text fade-up">
+      <p>
+        Atualmente atuando como <strong>IT Analyst II no time de Automação de Infraestrutura do Santander Serviços Digitais</strong> — desenvolvendo automações com Ansible Automation Platform, Camunda e Rundeck, além de elaborar workflows para provisionamento automatizado de servidores com JavaScript, Shell Script e metodologias ágeis.
+      </p>
+      <p>
+        Com mais de 9 anos de experiência acumulada em infraestrutura — passando por SysAdmin na Apis Delta Ltda, onde liderou a migração de ambientes Windows para Linux/BSD, até atuar como <strong>Linux Engineer Jr. na F1rst Digital Services</strong> (Santander Brasil), com suporte N3 e gestão de vulnerabilidades em servidores Red Hat.
+      </p>
+      <p>
+        Graduando em <strong>Ciência da Computação</strong> pela UniAmérica, com formação técnica em informática pela ETEC JK. Busco constantemente evoluir nas práticas de <strong>automação, IaC e SRE</strong>.
+      </p>
+
+      
+    </div>
+
+    <div class="fade-up" style="transition-delay:0.15s">
+      <div class="focus-grid">
+        <div class="focus-card">
+          <div class="focus-icon">🐧</div>
+          <div class="focus-title">Linux Engineering</div>
+          <div class="focus-desc">Shell Script, Red Hat, patches, vulnerabilidades e suporte N3.</div>
+        </div>
+        <div class="focus-card">
+          <div class="focus-icon">⚙️</div>
+          <div class="focus-title">Automação de Infra</div>
+          <div class="focus-desc">Ansible Automation Platform, Camunda, Rundeck e workflows de provisionamento automatizado.</div>
+        </div>
+        <div class="focus-card">
+          <div class="focus-icon">📡</div>
+          <div class="focus-title">Observabilidade</div>
+          <div class="focus-desc">Monitoramento de sistemas, OEE industrial e análise de logs.</div>
+        </div>
+        <div class="focus-card">
+          <div class="focus-icon">☁️</div>
+          <div class="focus-title">IaC & Cloud</div>
+          <div class="focus-desc">Terraform, Ansible, ambiente híbrido e labs em clouds públicas.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIÊNCIA -->
+<section id="experiencia">
+  <div class="section-label">02 / trajetória</div>
+  <h2 class="section-title">Experiência</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-meta">
+        <div>
+          <div class="timeline-company">Santander Serviços Digitais</div>
+          <h3 class="timeline-role">IT Analyst II · Automação de Infraestrutura</h3>
+          <span class="timeline-type">Analista</span>
+        </div>
+        <div class="timeline-date">Out 2024 – Presente</div>
+      </div>
+      <p class="timeline-desc">
+        Desenvolvimento de automações para infraestrutura utilizando Ansible Automation Platform, Camunda e Rundeck. Elaboração de workflows para provisionamento automatizado de servidores e atendimento de demandas de processos de infraestrutura. Atuação com metodologias ágeis empregando JavaScript, Shell Script e Ansible para garantir eficiência, padronização e escalabilidade nas entregas.
+      </p>
+      <div class="timeline-tags">
+        <span class="tag">Ansible Automation Platform</span>
+        <span class="tag">Camunda</span>
+        <span class="tag">Rundeck</span>
+        <span class="tag">Shell Script</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">IaC</span>
+        <span class="tag">Provisionamento</span>
+        <span class="tag">Agile</span>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up" style="transition-delay:0.05s">
+      <div class="timeline-meta">
+        <div>
+          <div class="timeline-company">AgileThought → F1rst Digital Services (Santander)</div>
+          <h3 class="timeline-role">Associate SysAdmin Engineer II · Linux Engineer Jr.</h3>
+          <span class="timeline-type">Prestador de serviços</span>
+        </div>
+        <div class="timeline-date">Nov 2023 – Out 2024</div>
+      </div>
+      <p class="timeline-desc">
+        Execução de solicitações e demandas da área de Sistemas Operacionais Linux do ambiente Santander Brasil. Suporte N3 com atuação direta em troubleshooting, tratativa de vulnerabilidades e aplicação de patches em servidores Linux Red Hat em ambiente de grande escala financeira.
+      </p>
+      <div class="timeline-tags">
+        <span class="tag">Red Hat Enterprise Linux</span>
+        <span class="tag">Patching</span>
+        <span class="tag">Troubleshooting</span>
+        <span class="tag">Vulnerabilidades</span>
+        <span class="tag">Suporte N3</span>
+        <span class="tag">Shell Script</span>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up" style="transition-delay:0.1s">
+      <div class="timeline-meta">
+        <div>
+          <div class="timeline-company">Apis Delta Ltda</div>
+          <h3 class="timeline-role">Analista de Suporte Técnico · SysAdmin</h3>
+          <span class="timeline-type">Analista</span>
+        </div>
+        <div class="timeline-date">Fev 2015 – Set 2024</div>
+      </div>
+      <p class="timeline-desc">
+        Gestão completa do parque tecnológico da empresa ao longo de mais de 9 anos. Responsável por toda a infraestrutura — desde servidores de e-mail, virtualização e backup até automação industrial para OEE. Conduziu migração de servidores legados Windows para Linux/BSD, gerando melhorias expressivas em segurança, desempenho e redução de custos de licenças.
+      </p>
+      <div class="timeline-tags">
+        <span class="tag">Linux / BSD</span>
+        <span class="tag">Virtualização</span>
+        <span class="tag">Active Directory</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Informix DB</span>
+        <span class="tag">File Server</span>
+        <span class="tag">Backup</span>
+        <span class="tag">ERP Fabrik</span>
+        <span class="tag">NF-e</span>
+        <span class="tag">IoT / OEE</span>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up" style="transition-delay:0.2s">
+      <div class="timeline-meta">
+        <div>
+          <div class="timeline-company">Risksolution</div>
+          <h3 class="timeline-role">Desenvolvedor Full Stack</h3>
+          <span class="timeline-type">Freelance</span>
+        </div>
+        <div class="timeline-date">Jan 2021 – Dez 2021</div>
+      </div>
+      <p class="timeline-desc">
+        Desenvolvimento de solução completa para empresa de consultoria de segurança: aplicativo mobile em React Native para vistorias offline em lojistas e sistema web em PHP com ACL, sincronização de vistorias, relatórios, gráficos e notificações.
+      </p>
+      <div class="timeline-tags">
+        <span class="tag">React Native</span>
+        <span class="tag">PHP</span>
+        <span class="tag">ACL</span>
+        <span class="tag">Mobile</span>
+        <span class="tag">Full Stack</span>
+        <span class="tag">Offline-first</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- FORMAÇÃO -->
+<section id="formacao">
+  <div class="section-label">03 / formação</div>
+  <h2 class="section-title">Educação & Cursos</h2>
+
+  <div class="edu-grid fade-up">
+    <div class="edu-card">
+      <img src="https://hazevedo.dev/assets/ua_logo.svg" alt="UniAmérica" class="edu-logo" onerror="this.style.display='none'">
+      <div>
+        <div class="edu-degree">Graduação em Ciência da Computação</div>
+        <div class="edu-school">UniAmérica – Faculdade Descomplica</div>
+        <div class="edu-period">Jul 2022 – Jul 2026</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <img src="https://hazevedo.dev/assets/cps_logo.svg" alt="ETEC" class="edu-logo" onerror="this.style.display='none'">
+      <div>
+        <div class="edu-degree">Técnico em Informática</div>
+        <div class="edu-school">ETEC Juscelino Kubitschek de Oliveira</div>
+        <div class="edu-period">Concluído</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="courses-section fade-up" style="transition-delay:0.15s">
+    <div class="courses-label">Cursos concluídos</div>
+    <div class="courses-grid">
+
+      <!-- 4Linux -->
+      <div class="course-item">
+        <div class="course-info">
+          <div class="course-provider">4Linux</div>
+          <div class="course-name">Linux Fundamentals</div>
+        </div>
+        <a href="https://drive.google.com/file/d/1GAaHyZq8M6x0EYh_pNKRh56rvAOX_tXa/view" target="_blank" class="course-link">ver</a>
+      </div>
+      <div class="course-item">
+        <div class="course-info">
+          <div class="course-provider">4Linux</div>
+          <div class="course-name">Linux Essentials</div>
+        </div>
+        <a href="https://drive.google.com/file/d/13LPUZFUiL3_izwS-XAfC-ikDd2Efx9P6/view" target="_blank" class="course-link">ver</a>
+      </div>
+      <div class="course-item">
+        <div class="course-info">
+          <div class="course-provider">4Linux</div>
+          <div class="course-name">DevOps Essentials</div>
+        </div>
+        <a href="https://drive.google.com/file/d/13zhL0T5LxWvJtp_cNMTSIElJxlg4Xx1A/view" target="_blank" class="course-link">ver</a>
+      </div>
+      <div class="course-item">
+        <div class="course-info">
+          <div class="course-provider">4Linux</div>
+          <div class="course-name">Containers Fundamentals</div>
+        </div>
+        <a href="https://drive.google.com/file/d/1lQbYqqY1x_qhonr2wl70-eFTU-X0KSgj/view" target="_blank" class="course-link">ver</a>
+      </div>
+      <div class="course-item">
+        <div class="course-info">
+          <div class="course-provider">4Linux</div>
+          <div class="course-name">Cloud Fundamentals</div>
+        </div>
+        <a href="https://drive.google.com/file/d/114ODk5XxVkBlwTLVpHJStxqwnkubfJUZ/view" target="_blank" class="course-link">ver</a>
+      </div>
+      <div class="course-item">
+        <div class="course-info">
+          <div class="course-provider">4Linux</div>
+          <div class="course-name">Big Data Essentials</div>
+        </div>
+        <a href="https://drive.google.com/file/d/1Xog0eSrStruLk1JmdNkONVhaG8c2sGHh/view" target="_blank" class="course-link">ver</a>
+      </div>
+      <div class="course-item">
+        <div class="course-info">
+          <div class="course-provider">4Linux</div>
+          <div class="course-name">Auditoria de Logs</div>
+        </div>
+        <a href="https://drive.google.com/file/d/1JByZzPacIqEiXgOGrzCbqFMn81ppRK4q/view" target="_blank" class="course-link">ver</a>
+      </div>
+
+      <!-- FIAP -->
+      <div class="course-item">
+        <div class="course-info">
+          <div class="course-provider">FIAP</div>
+          <div class="course-name">Cloud Fundamentals, Admin & Solution Architect</div>
+        </div>
+        <a href="https://drive.google.com/file/d/1TnGkgAgy8IHX0lswo4mkfGF03fvvv38v/view" target="_blank" class="course-link">ver</a>
+      </div>
+      <div class="course-item">
+        <div class="course-info">
+          <div class="course-provider">FIAP</div>
+          <div class="course-name">DevOps & Agile Culture</div>
+        </div>
+        <a href="https://drive.google.com/file/d/1CCglXz94AFMRkz_lxg6HukYSkNFHYdLP/view" target="_blank" class="course-link">ver</a>
+      </div>
+      <div class="course-item">
+        <div class="course-info">
+          <div class="course-provider">FIAP</div>
+          <div class="course-name">Gestão de Infraestrutura de TI</div>
+        </div>
+        <a href="https://drive.google.com/file/d/1oA3aeP6xt3_kGz-Q6I8B4bcbeBv6JiTo/view" target="_blank" class="course-link">ver</a>
+      </div>
+      <div class="course-item">
+        <div class="course-info">
+          <div class="course-provider">FIAP</div>
+          <div class="course-name">Java Fundamentos</div>
+        </div>
+        <a href="https://drive.google.com/file/d/1t1vNAhZnT_NTfHkiuBUfRRkSNv69dVl8/view" target="_blank" class="course-link">ver</a>
+      </div>
+
+      <!-- DIO -->
+      <div class="course-item">
+        <div class="course-info">
+          <div class="course-provider">DIO.me</div>
+          <div class="course-name">Formação: Kubernetes Fundamentals</div>
+        </div>
+        <a href="https://www.dio.me/certificate/F104E404" target="_blank" class="course-link">ver</a>
+      </div>
+      <div class="course-item">
+        <div class="course-info">
+          <div class="course-provider">DIO.me</div>
+          <div class="course-name">Formação: Docker Fundamentals</div>
+        </div>
+        <a href="https://www.dio.me/certificate/10D6C7B6" target="_blank" class="course-link">ver</a>
+      </div>
+      <div class="course-item">
+        <div class="course-info">
+          <div class="course-provider">DIO.me</div>
+          <div class="course-name">Formação: Cybersecurity Specialist</div>
+        </div>
+        <a href="https://www.dio.me/certificate/C5ED3F9B" target="_blank" class="course-link">ver</a>
+      </div>
+      <div class="course-item">
+        <div class="course-info">
+          <div class="course-provider">DIO.me</div>
+          <div class="course-name">Bootcamp: Jornada DevOps com AWS</div>
+        </div>
+        <a href="https://www.dio.me/certificate/9EE27E76" target="_blank" class="course-link">ver</a>
+      </div>
+      <div class="course-item">
+        <div class="course-info">
+          <div class="course-provider">DIO.me</div>
+          <div class="course-name">Git e GitLab na prática</div>
+        </div>
+        <a href="https://www.dio.me/certificate/CC7F4AF1" target="_blank" class="course-link">ver</a>
+      </div>
+
+      <!-- Solyd -->
+      <div class="course-item">
+        <div class="course-info">
+          <div class="course-provider">Solyd Offensive Security</div>
+          <div class="course-name">Introdução ao Hacking e Pentest 2.0</div>
+        </div>
+        <a href="https://drive.google.com/file/d/1oS0MqYIim-YUygR3qy8lyPb7BkjZm2rc/view" target="_blank" class="course-link">ver</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CERTIFICAÇÕES -->
+<section id="certificacoes">
+  <div class="section-label">04 / credenciais</div>
+  <h2 class="section-title">Certificações</h2>
+
+  <div class="certs-grid">
+    <div class="cert-card fade-up">
+      <img src="https://hazevedo.dev/assets/capc.png" alt="CertiProf" class="cert-logo" onerror="this.outerHTML='<div class=\'cert-logo-placeholder\'>🛡️</div>'">
+      <div class="cert-org">CertiProf</div>
+      <div class="cert-name">Cybersecurity Awareness Professional – CAPC</div>
+      <div class="cert-date">Ago 03, 2024</div>
+      <a href="https://www.credly.com/badges/7aa4e55c-893c-4af9-b94d-b044dea72c91/linked_in_profile" target="_blank" class="cert-verify">Verificar credencial</a>
+    </div>
+    <div class="cert-card fade-up" style="transition-delay:0.1s">
+      <img src="https://hazevedo.dev/assets/lpi_logo.svg" alt="LPI" class="cert-logo" onerror="this.outerHTML='<div class=\'cert-logo-placeholder\'>🐧</div>'">
+      <div class="cert-org">Linux Professional Institute</div>
+      <div class="cert-name">Linux Essentials (LPI)</div>
+      <div class="cert-date">Mai 05, 2023</div>
+      <a href="https://cs.lpi.org/caf/Xamman/certification/verify/LPI000546507/u6r3g75flz" target="_blank" class="cert-verify">Verificar credencial</a>
+    </div>
+    <div class="cert-card fade-up" style="transition-delay:0.15s">
+      <img src="https://hazevedo.dev/assets/ibsec_logo.svg" alt="IBSEC" class="cert-logo" onerror="this.outerHTML='<div class=\'cert-logo-placeholder\'>🔒</div>'">
+      <div class="cert-org">IBSEC – Instituto Brasileiro de Cibersegurança</div>
+      <div class="cert-name">Fundamentos em Redes</div>
+      <div class="cert-date">Dez 12, 2022</div>
+      <a href="https://drive.google.com/file/d/16U96OwHeJPdr36dlsePy0DNjkymYSb-M/view" target="_blank" class="cert-verify">Verificar credencial</a>
+    </div>
+    <div class="cert-card fade-up" style="transition-delay:0.2s">
+      <img src="https://hazevedo.dev/assets/ibsec_logo.svg" alt="IBSEC" class="cert-logo" onerror="this.outerHTML='<div class=\'cert-logo-placeholder\'>🔒</div>'">
+      <div class="cert-org">IBSEC – Instituto Brasileiro de Cibersegurança</div>
+      <div class="cert-name">Cybersecurity Awareness</div>
+      <div class="cert-date">Jun 21, 2022</div>
+      <a href="https://drive.google.com/file/d/1OTizW85Pe9nDAAkHUuZpZNoUmz1r8iTv/view" target="_blank" class="cert-verify">Verificar credencial</a>
+    </div>
+    <div class="cert-card fade-up" style="transition-delay:0.25s">
+      <img src="https://hazevedo.dev/assets/ibsec_logo.svg" alt="IBSEC" class="cert-logo" onerror="this.outerHTML='<div class=\'cert-logo-placeholder\'>🔒</div>'">
+      <div class="cert-org">IBSEC – Instituto Brasileiro de Cibersegurança</div>
+      <div class="cert-name">Fundamentos em Cibersegurança</div>
+      <div class="cert-date">Jun 01, 2022</div>
+      <a href="https://drive.google.com/file/d/1OTizW85Pe9nDAAkHUuZpZNoUmz1r8iTv/view" target="_blank" class="cert-verify">Verificar credencial</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PROJETOS -->
+<section id="projetos">
+  <div class="section-label">05 / laboratório</div>
+  <h2 class="section-title">Projetos</h2>
+
+  <div class="projects-grid">
+    <div class="project-card fade-up">
+      <div class="project-num">01 / ansible</div>
+      <div class="project-name">workstation</div>
+      <p class="project-desc">Playbook Ansible para configuração automatizada da workstation — instala e configura ferramentas e aplicativos utilizados no dia a dia e em laboratórios de estudo.</p>
+      <a href="https://github.com/hnrazevedo/workstation" target="_blank" class="project-link">Ver no GitHub →</a>
+    </div>
+    <div class="project-card fade-up" style="transition-delay:0.1s">
+      <div class="project-num">02 / terraform + ansible</div>
+      <div class="project-name">terraform-proxmox-lab</div>
+      <p class="project-desc">Roteiro para provisionar um cluster Kubernetes em Proxmox utilizando Terraform para IaC e Ansible para configuração dos nós — laboratório prático de homelab k8s.</p>
+      <a href="https://github.com/hnrazevedo/homelab" target="_blank" class="project-link">Ver no GitHub →</a>
+    </div>
+    <div class="project-card fade-up" style="transition-delay:0.15s">
+      <div class="project-num">03 / php</div>
+      <div class="project-name">router</div>
+      <p class="project-desc">Abstrator de URL amigável em PHP inspirado no sistema de roteamento do Laravel. Desenvolvido como estudo de padrões de arquitetura MVC.</p>
+      <a href="https://github.com/hnrazevedo/Router" target="_blank" class="project-link">Ver no GitHub →</a>
+    </div>
+    <div class="project-card fade-up" style="transition-delay:0.2s">
+      <div class="project-num">04 / php</div>
+      <div class="project-name">validator</div>
+      <p class="project-desc">Componente leve de validação de dados em PHP puro, desenvolvido para consolidar boas práticas de validação e sanitização.</p>
+      <a href="https://github.com/hnrazevedo/Validator" target="_blank" class="project-link">Ver no GitHub →</a>
+    </div>
+    <div class="project-card fade-up" style="transition-delay:0.25s">
+      <div class="project-num">05 / javascript</div>
+      <div class="project-name">jsmask</div>
+      <p class="project-desc">Biblioteca JavaScript simples e sem dependências para aplicação de máscaras em campos de formulário — estudo de manipulação de DOM e eventos.</p>
+      <a href="https://github.com/hnrazevedo/JSmask" target="_blank" class="project-link">Ver no GitHub →</a>
+    </div>
+    <div class="project-card fade-up" style="transition-delay:0.3s">
+      <div class="project-num">06 / javascript</div>
+      <div class="project-name">jsvalidator</div>
+      <p class="project-desc">Validador de campos de formulário em JavaScript puro. Desenvolvido como exercício de programação funcional e manipulação de estado no frontend.</p>
+      <a href="https://github.com/hnrazevedo/JSmask" target="_blank" class="project-link">Ver no GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2026 Henri Azevedo — hazevedo.dev</div>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/azevedo-henri/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/hnrazevedo" target="_blank">GitHub</a>
+    <a href="mailto:contato@hazevedo.dev">Email</a>
+  </div>
+</footer>
